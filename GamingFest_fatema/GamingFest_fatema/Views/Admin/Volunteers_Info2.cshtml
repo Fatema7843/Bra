@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GamingFest_fatema.Models.volunteer>
+
+@{
+    ViewBag.Title = "Volunteers_Info2";
+    Layout = "~/Views/_Dashboard2.cshtml";
+}
+
+<h2>Volunteers_Info2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "vcreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "vedit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "vdetails", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "vdelete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
